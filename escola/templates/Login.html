@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar - EscolaR Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Style.css') }}">
+</head>
+<body>
+<main>
+    <h1 class="titulo">Entrar na conta</h1>
+    {% with mensagens = get_flashed_messages(with_categories=true) %}
+      {% for categoria, mensagem in mensagens %}
+        <p class="mensagem {{ categoria }}">{{ mensagem }}</p>
+      {% endfor %}
+    {% endwith %}
+    <form method="POST" class="formulario-conta">
+        <input type="email" name="email" placeholder="Seu e-mail" required autocomplete="email">
+        <input type="password" name="senha" placeholder="Sua senha" required autocomplete="current-password">
+        <button type="submit">Entrar</button>
+    </form>
+    <p class="texto">Ainda não tem conta? <a href="{{ url_for('cadastro') }}">Cadastre-se</a></p>
+    <p><a href="{{ url_for('inicio') }}">Voltar ao início</a></p>
+</main>
+</body>
+</html>
