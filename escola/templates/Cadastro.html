@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar conta - Escolar Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Style.css') }}">
+</head>
+
+<body class="pagina-autenticacao">
+
+    <main class="conta-main">
+
+        <section class="painel-conta">
+
+            <div class="conta-detalhe conta-detalhe-um"></div>
+            <div class="conta-detalhe conta-detalhe-dois"></div>
+
+            <div class="conta-conteudo">
+
+                <span class="conta-identificador">ESCOLAR SEARCH</span>
+
+                <h1 class="titulo-conta">Criar conta</h1>
+
+                <p class="subtitulo-conta">
+                    Crie seu acesso para aproveitar os recursos da plataforma.
+                </p>
+
+                {% with mensagens = get_flashed_messages(with_categories=true) %}
+                    {% for categoria, mensagem in mensagens %}
+                        <p class="mensagem {{ categoria }}">{{ mensagem }}</p>
+                    {% endfor %}
+                {% endwith %}
+
+                <form method="POST" class="formulario-conta">
+
+                    <label class="campo-conta">
+                        <span>Nome</span>
+                        <input
+                            type="text"
+                            name="nome"
+                            placeholder="Seu nome"
+                            required
+                            maxlength="100"
+                            autocomplete="name">
+                    </label>
+
+                    <label class="campo-conta">
+                        <span>E-mail</span>
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Seu e-mail"
+                            required
+                            maxlength="150"
+                            autocomplete="email">
+                    </label>
+
+                    <label class="campo-conta">
+                        <span>Senha</span>
+                        <input
+                            type="password"
+                            name="senha"
+                            placeholder="Crie uma senha (mínimo 8 caracteres)"
+                            required
+                            minlength="8"
+                            autocomplete="new-password">
+                    </label>
+
+                    <label class="campo-conta">
+                        <span>Confirme sua senha</span>
+                        <input
+                            type="password"
+                            name="confirmar_senha"
+                            placeholder="Digite sua senha novamente"
+                            required
+                            minlength="8"
+                            autocomplete="new-password">
+                    </label>
+
+                    <button type="submit" class="botao-principal-conta">
+                        Cadastrar
+                    </button>
+
+                </form>
+
+                <div class="alternativa-conta">
+                    <span>Já tem uma conta?</span>
+                    <a class="botao-link-conta" href="{{ url_for('login') }}">
+                        Faça login
+                    </a>
+                </div>
+
+                <a class="botao-voltar-conta" href="{{ url_for('inicio') }}">
+                    ← Voltar ao início
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

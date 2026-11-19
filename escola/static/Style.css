@@ -1,0 +1,1153 @@
+
+/* ============================= */
+/* conta */
+/* ============================= */
+
+.formulario-conta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 360px;
+    margin: 30px auto;
+}
+.formulario-conta input {
+    width: 100%;
+    padding: 12px;
+    border: 0;
+    border-radius: 8px;
+    font-size: 16px;
+}
+.formulario-conta button {
+    padding: 12px 25px;
+    border: 0;
+    border-radius: 8px;
+    background: #1d6882;
+    color: white;
+    cursor: pointer;
+}
+.mensagem { margin: 12px auto; }
+.erro, .aviso { color: #ffb4b4; }
+.sucesso { color: #9be7b0; }
+
+
+/* ============================= */
+/* CONFIGURAÇÕES GERAIS */
+/* ============================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+body {
+    background:
+        radial-gradient(
+            ellipse at 15% 15%,
+            rgba(67, 60, 130, .22),
+            transparent 38%
+        ),
+        radial-gradient(
+            ellipse at 90% 85%,
+            rgba(29, 104, 130, .18),
+            transparent 35%
+        ),
+        linear-gradient(
+            180deg,
+            #09061a,
+            #11102b,
+            #09061a
+        );
+
+    background-attachment: fixed;
+
+    color: white;
+    min-height: 100vh;
+}
+
+
+
+/* ============================= */
+/* CABEÇALHO */
+/* ============================= */
+
+header {
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(90deg, #09061a, #433c82);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.75);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #1d6882;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.logo:hover {
+    color: #00516a;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+/* ============================= */
+/* BARRA DE PESQUISA */
+/* ============================= */
+
+.search-header {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.search-input {
+    padding: 10px;
+    width: 300px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.search-input:focus {
+    box-shadow: 0 0 0 2px #1d6882;
+}
+
+.search-btn {
+    padding: 10px 15px;
+    border: 1px solid #1d6882;
+    border-radius: 8px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #1d6882, #433c82);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+    background: linear-gradient(135deg, #433c82, #1d6882);
+    box-shadow: 0 5px 15px rgba(29, 104, 130, 0.35);
+    transform: translateY(-2px);
+}
+
+/* ============================= */
+/* BOTÕES DE CONTA */
+/* ============================= */
+
+.auth-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-conta {
+    padding: 10px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.entrar {
+    color: white;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.entrar:hover {
+    background: #433c82;
+    transform: translateY(-2px);
+}
+
+.cadastrar {
+    color: white;
+    background: linear-gradient(135deg, #1d6882, #433c82);
+    border: 1px solid #1d6882;
+}
+
+.cadastrar:hover {
+    background: linear-gradient(135deg, #433c82, #1d6882);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(29, 104, 130, 0.35);
+}
+
+.usuario-logado {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.sair {
+    color: white;
+    background: #8b3030;
+}
+header {
+    justify-content: space-between;
+}
+
+.auth-actions {
+    margin-left: auto;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.auth-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    padding: 8px 14px;
+    margin-left: auto;
+    margin-right: 20px;
+
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+
+    flex-shrink: 0;
+}
+
+.usuario-logado {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.auth-actions .sair {
+    padding: 9px 16px;
+    border-radius: 8px;
+}
+
+
+/* ==========================================
+   TELAS DE LOGIN E CADASTRO
+   ESCOLAR SEARCH
+========================================== */
+
+.pagina-autenticacao {
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            ellipse at 15% 15%,
+            rgba(67, 60, 130, .22),
+            transparent 38%
+        ),
+        radial-gradient(
+            ellipse at 90% 85%,
+            rgba(29, 104, 130, .18),
+            transparent 35%
+        ),
+        #09061a;
+}
+
+.conta-main {
+    min-height: 100vh;
+    width: 100%;
+    padding: 48px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* QUADRADO PRINCIPAL */
+
+.painel-conta {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    width: min(100%, 570px);
+    padding: 46px 52px 38px;
+
+    border: 1px solid rgba(130, 124, 218, .38);
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(35, 31, 75, .97),
+            rgba(17, 15, 43, .98) 58%,
+            rgba(13, 35, 55, .97)
+        );
+
+    box-shadow:
+        0 24px 70px rgba(0, 0, 0, .42),
+        0 0 35px rgba(67, 60, 130, .16),
+        inset 0 1px 0 rgba(255, 255, 255, .08);
+}
+
+/* PADRÃO GEOMÉTRICO NO FUNDO */
+
+.painel-conta::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    opacity: .42;
+
+    background-image:
+        linear-gradient(
+            rgba(135, 130, 220, .075) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(135, 130, 220, .075) 1px,
+            transparent 1px
+        );
+
+    background-size: 30px 30px;
+
+    mask-image: linear-gradient(
+        135deg,
+        black,
+        transparent 78%
+    );
+}
+
+/* DETALHE CIRCULAR */
+
+.painel-conta::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+
+    width: 250px;
+    height: 250px;
+
+    top: -155px;
+    right: -105px;
+
+    border: 1px solid rgba(74, 177, 204, .35);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 18px rgba(74, 177, 204, .035),
+        0 0 0 38px rgba(74, 177, 204, .025);
+}
+
+/* DETALHES DECORATIVOS */
+
+.conta-detalhe {
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: 12px;
+    transform: rotate(35deg);
+}
+
+.conta-detalhe-um {
+    width: 90px;
+    height: 90px;
+
+    left: -52px;
+    bottom: 72px;
+
+    border: 1px solid rgba(104, 94, 195, .35);
+}
+
+.conta-detalhe-dois {
+    width: 14px;
+    height: 14px;
+
+    right: 34px;
+    bottom: 35px;
+
+    background: rgba(55, 157, 183, .35);
+
+    box-shadow:
+        0 0 22px rgba(55, 157, 183, .4);
+}
+
+/* CONTEÚDO */
+
+.conta-conteudo {
+    position: relative;
+    z-index: 1;
+}
+
+.conta-identificador {
+    display: inline-block;
+    margin-bottom: 12px;
+
+    color: #69c2d5;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.titulo-conta {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: clamp(32px, 5vw, 42px);
+    line-height: 1.15;
+    font-weight: 800;
+}
+
+.subtitulo-conta {
+    margin: 12px 0 28px;
+
+    color: #c1bfd8;
+
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* FORMULÁRIO */
+
+.formulario-conta {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 16px;
+
+    width: 100%;
+    max-width: 440px;
+
+    margin: 0 auto;
+}
+
+/* CAMPOS */
+
+.campo-conta {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    text-align: left;
+}
+
+.campo-conta span {
+    color: #dedcf0;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.formulario-conta input {
+    width: 100%;
+    min-height: 54px;
+
+    padding: 15px 17px;
+
+    border: 1px solid rgba(180, 177, 220, .24);
+    border-radius: 11px;
+
+    outline: none;
+
+    background: rgba(255, 255, 255, .97);
+    color: #17142c;
+
+    font-size: 16px;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        transform .2s ease;
+}
+
+.formulario-conta input::placeholder {
+    color: #77758a;
+}
+
+.formulario-conta input:focus {
+    border-color: #55b8d0;
+
+    box-shadow:
+        0 0 0 4px rgba(85, 184, 208, .18);
+
+    transform: translateY(-1px);
+}
+
+/* BOTÃO CADASTRAR / ENTRAR */
+
+.botao-principal-conta {
+    width: 100%;
+    min-height: 54px;
+
+    margin-top: 7px;
+    padding: 14px 22px;
+
+    border: 1px solid rgba(117, 218, 235, .35);
+    border-radius: 11px;
+
+    background: linear-gradient(
+        110deg,
+        #1d829d,
+        #493b9b
+    );
+
+    color: #ffffff;
+
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: .2px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 9px 22px rgba(29, 104, 130, .28);
+
+    transition:
+        transform .2s ease,
+        filter .2s ease,
+        box-shadow .2s ease;
+}
+
+.botao-principal-conta:hover {
+    transform: translateY(-3px);
+
+    filter: brightness(1.13);
+
+    box-shadow:
+        0 13px 28px rgba(55, 133, 180, .35);
+}
+
+/* ÁREA DE LOGIN E CADASTRO */
+
+.alternativa-conta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 27px;
+
+    color: #e5e3f2;
+    font-size: 15px;
+}
+
+/* BOTÃO FAÇA LOGIN / CADASTRE-SE */
+
+.botao-link-conta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 42px;
+
+    padding: 9px 18px;
+
+    border: 1px solid rgba(126, 111, 226, .75);
+    border-radius: 9px;
+
+    background: rgba(91, 69, 177, .2);
+
+    color: #c7b8ff;
+
+    font-weight: 800;
+    text-decoration: none;
+
+    transition: .2s ease;
+}
+
+.botao-link-conta:hover {
+    color: #ffffff;
+
+    background: linear-gradient(
+        110deg,
+        #493b9b,
+        #1d6882
+    );
+
+    border-color: #6bc8dd;
+
+    transform: translateY(-2px);
+}
+
+/* BOTÃO VOLTAR AO INÍCIO */
+
+.botao-voltar-conta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 42px;
+
+    margin-top: 20px;
+    padding: 9px 18px;
+
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 9px;
+
+    background: rgba(255, 255, 255, .055);
+
+    color: #d5d2e9;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: .2s ease;
+}
+
+.botao-voltar-conta:hover {
+    color: #ffffff;
+
+    border-color: rgba(105, 194, 213, .7);
+
+    background: rgba(29, 104, 130, .22);
+
+    transform: translateY(-2px);
+}
+
+/* MENSAGENS DO FLASK */
+
+.mensagem {
+    margin: 0 auto 16px;
+    padding: 11px 14px;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+}
+
+.mensagem.erro,
+.mensagem.aviso {
+    color: #ffd1d1;
+
+    background: rgba(160, 48, 65, .2);
+
+    border: 1px solid rgba(255, 130, 145, .25);
+}
+
+.mensagem.sucesso {
+    color: #c6ffda;
+
+    background: rgba(43, 145, 88, .18);
+
+    border: 1px solid rgba(120, 235, 160, .25);
+}
+
+/* ACESSIBILIDADE */
+
+.botao-principal-conta:focus-visible,
+.botao-link-conta:focus-visible,
+.botao-voltar-conta:focus-visible {
+    outline: 3px solid #8de6f4;
+    outline-offset: 4px;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 600px) {
+
+    .conta-main {
+        padding: 24px 14px;
+    }
+
+    .painel-conta {
+        padding: 34px 22px 28px;
+        border-radius: 19px;
+    }
+
+    .subtitulo-conta {
+        margin-bottom: 23px;
+        font-size: 14px;
+    }
+
+    .formulario-conta {
+        gap: 13px;
+    }
+
+    .formulario-conta input {
+        min-height: 51px;
+        font-size: 15px;
+    }
+
+    .alternativa-conta {
+        gap: 8px;
+        font-size: 14px;
+    }
+}
+
+
+/* ============================= */
+/* BOTÕES DO MENU */
+/* ============================= */
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px 17px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background: linear-gradient(135deg, #1d6882, #433c82);
+    border-color: #1d6882;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(29, 104, 130, 0.35);
+}
+
+nav a:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+
+/* ============================= */
+/* CONTEÚDO PRINCIPAL */
+/* ============================= */
+
+main {
+    padding: 40px;
+    text-align: center;
+}
+
+.titulo {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.texto {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+/* ============================= */
+/* CARDS de editais */
+/* ============================= */
+
+.sobre-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 300px;
+    background-color: #1a1733;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.icone {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.card h2 {
+    margin-bottom: 15px;
+}
+
+/* ==========================================
+   SEÇÃO COMO FUNCIONA
+   ESCOLAR SEARCH
+========================================== */
+
+.como-funciona {
+    width: 100%;
+    padding: 85px 25px;
+    margin-top: 70px;
+
+    background: linear-gradient(
+        180deg,
+        #17142b 0%,
+        #211d3b 50%,
+        #17142b 100%
+    );
+
+    border-top: 1px solid rgba(169, 155, 232, .15);
+    border-bottom: 1px solid rgba(169, 155, 232, .15);
+}
+
+.funciona-cabecalho {
+    max-width: 700px;
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.funciona-etiqueta {
+    display: inline-block;
+    margin-bottom: 12px;
+
+    color: #55b8d0;
+
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.funciona-cabecalho h2 {
+    color: #ffffff;
+
+    font-size: 32px;
+    font-weight: 800;
+
+    margin-bottom: 15px;
+}
+
+.funciona-cabecalho p {
+    color: #b9b7d1;
+
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+.funciona-cards {
+    max-width: 1280px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.funciona-card {
+    padding: 32px 25px;
+
+    min-height: 245px;
+
+    text-align: center;
+
+    background: linear-gradient(
+        145deg,
+        #17152f,
+        #100f23
+    );
+
+    border: 1px solid rgba(67, 60, 130, .4);
+    border-radius: 17px;
+
+    transition: all .3s ease;
+}
+
+
+.funciona-card:hover {
+    transform: translateY(-8px);
+
+    border-color: #1d6882;
+
+    box-shadow:
+        0 12px 30px rgba(29, 104, 130, .18),
+        0 0 20px rgba(67, 60, 130, .12);
+}
+
+.funciona-numero {
+    width: 58px;
+    height: 58px;
+
+    margin: 0 auto 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background: linear-gradient(
+        135deg,
+        #1d829d,
+        #433c82
+    );
+
+    color: #ffffff;
+
+    font-size: 23px;
+    font-weight: 800;
+
+    box-shadow:
+        0 6px 18px rgba(29, 104, 130, .3);
+}
+
+.funciona-card h3 {
+    color: #ffffff;
+
+    font-size: 18px;
+    font-weight: 800;
+
+    margin-bottom: 13px;
+}
+
+.funciona-card p {
+    color: #b9b7d1;
+
+    font-size: 15px;
+    line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+
+    .funciona-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .como-funciona {
+        padding: 60px 18px;
+        margin-top: 45px;
+    }
+
+    .funciona-cabecalho h2 {
+        font-size: 26px;
+    }
+
+    .funciona-cabecalho p {
+        font-size: 14px;
+    }
+
+    .funciona-cards {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .funciona-card {
+        min-height: auto;
+        padding: 28px 20px;
+    }
+
+}
+
+/* ============================= */
+/* BOTÃO DE VISUALIZAÇÃO DOS EDITAIS */
+/* ============================= */
+
+.botao-edital {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 11px 18px;
+
+    background: linear-gradient(135deg, #1d6882, #433c82);
+
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+
+    border-radius: 8px;
+    border: 1px solid #1d6882;
+
+    transition: all 0.3s ease;
+}
+
+.botao-edital:hover {
+    background: linear-gradient(135deg, #433c82, #1d6882);
+    border-color: #433c82;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(29, 104, 130, 0.35);
+}
+
+.botao-edital:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+
+/* ============================= */
+/* RODAPÉ */
+/* ============================= */
+
+footer {
+    background: #09061a;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin-top: 80px;
+}
+
+
+/* ============================= */
+/* RESPONSIVIDADE */
+/* ============================= */
+
+@media (max-width: 900px) {
+
+    header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .logo-area {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .search-input {
+        width: 220px;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    nav a {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    main {
+        padding: 25px 15px;
+    }
+
+    .titulo {
+        font-size: 30px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+
+/* =====================================
+   PÁGINA SOBRE - ESCOLAR SEARCH
+===================================== */
+
+.sobre-titulo {
+    padding: 75px 25px;
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 55px;
+    
+}
+
+.sobre-titulo span {
+    color: #a99be8;
+    font-size: 35px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.sobre-titulo h1 {
+    color: #ffffff;
+    font-size: 38px;
+    font-weight: 800;
+    margin: 12px 0;
+}
+
+.sobre-blocos {
+    max-width: 1250px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.sobre-bloco {
+    position: relative;
+    min-height: 380px;
+    padding: 40px;
+    background: linear-gradient(
+        145deg,
+        #211d3b,
+        #17142b
+    );
+    border: 1px solid #393253;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .2);
+    transition: .3s ease;
+}
+
+.sobre-bloco:hover {
+    transform: translateY(-6px);
+    border-color: #65558e;
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, .3);
+}
+
+.sobre-numero {
+    display: inline-block;
+    color: #a99be8;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.sobre-bloco h2 {
+    color: #ffffff;
+    font-size: 27px;
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+
+.sobre-texto {
+    min-height: 190px;
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(9, 6, 26, .45);
+    border: 1px solid rgba(169, 155, 232, .15);
+    color: #c3bfd4;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+@media (max-width: 750px) {
+
+    .sobre-apresentacao {
+        padding: 50px 18px;
+    }
+
+    .sobre-titulo h1 {
+        font-size: 30px;
+    }
+
+    .sobre-blocos {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .sobre-bloco {
+        min-height: 320px;
+        padding: 28px;
+    }
+
+    .sobre-bloco h2 {
+        font-size: 23px;
+    }
+
+}
+
